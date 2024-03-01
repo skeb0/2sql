@@ -55,7 +55,7 @@ INSERT INTO ORDERS VALUES (54, 550, '2017-03-13', 2000, 12);<br>
 <br>
 
 #QUERIES<br>
-<br>
+
 1.	Count the customers with grades above Bangalore‟s average.<br>
 SELECT COUNT(CUSTOMER_ID) FROM CUSTOMER WHERE GRADE > (SELECT AVG(GRADE) FROM CUSTOMER WHERE CITY='BANGALORE');<br>
 <br>
