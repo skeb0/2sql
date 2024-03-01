@@ -59,7 +59,6 @@ INSERT INTO ORDERS VALUES (54, 550, '2017-03-13', 2000, 12);<br>
 1.	Count the customers with grades above Bangalore‟s average.<br>
 SELECT COUNT(CUSTOMER_ID) FROM CUSTOMER WHERE GRADE > (SELECT AVG(GRADE) FROM CUSTOMER WHERE CITY='BANGALORE');<br>
 <br>
-
 2.	Find the name and numbers of all salesman who had more than one customer.<br>
 SELECT SALESMAN_ID,NAME FROM SALESMAN A WHERE (SELECT COUNT(*) FROM CUSTOMER C WHERE C.SALESMAN_ID=A.SALESMAN_ID) > 1;<br>
 <br>
@@ -70,7 +69,6 @@ ORDER by SALESMAN_ID;<br>
 4.	Create a view that finds the salesman who has the customer with the highest order of a day.<br>
 CREATE VIEW HighestOrder AS SELECT s.SALESMAN_ID, s.NAME, o.ORD_DATE, o.PURCHASE_AMT FROM SALESMAN s, ORDERS o WHERE (o.SALESMAN_ID = s.SALESMAN_ID) and  o.PURCHASE_AMT = (SELECT MAX(PURCHASE_AMT) FROM ORDERS);<br>
 SELECT * FROM HighestOrder;<br>
-
 <br>
 5.	Demonstrate the DELETE operation by removing salesman with id 1000. All his orders must also be deleted.<br>
 DELETE FROM SALESMAN WHERE SALESMAN_ID=1000;<br>
